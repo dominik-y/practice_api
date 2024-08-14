@@ -2,7 +2,7 @@ import 'author_name_model.dart';
 import 'first_sentence_model.dart';
 
 class Docs {
-  List<AuthorName>? authorName;
+  List<dynamic>? authorName;
   List<FirstSentence>? firstSentence;
   int? firstPublishYear;
   String? coverEditionKey;
@@ -17,15 +17,7 @@ class Docs {
   Docs.fromJson(Map<String, dynamic> json) {
     firstPublishYear = json['first_publish_year'];
     coverEditionKey = json['cover_edition_key'];
-
-    if (json['author_name'] != null) {
-      authorName = <AuthorName>[];
-      (json['docs'] as List).forEach((e) {
-        authorName!.add(AuthorName.fromJson(e));
-      });
-    } else {
-      print('FAILEd');
-    }
+    authorName = json['author_name'];
 
     // PUBLISH YEAR
     if (json['first_publish_year'] != null) {

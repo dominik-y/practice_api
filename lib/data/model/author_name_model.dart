@@ -1,15 +1,11 @@
 class AuthorName {
-  String? authorName;
+  List<String>? name;
 
   AuthorName({
-    this.authorName,
+    this.name,
   });
 
   AuthorName.fromJson(Map<String, dynamic> json) {
-    authorName = json['author_name'];
-
-    // if (json['author_name'] != null) {
-    //   authorName = authorName;
-    // }
+    name = json['author_name'];
   }
 }

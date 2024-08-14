@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/data/model/author_name_model.dart';
 import 'data/networking/api_call.dart';
 import 'data/model/books.dart';
 
@@ -31,6 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final ApiCall apiCall = ApiCall();
+  var author = AuthorName();
 
   @override
   Widget build(BuildContext context) {
@@ -46,18 +48,13 @@ class _MyHomePageState extends State<MyHomePage> {
             if (snapshot.hasData) {
               return Column(
                 children: [
-                  // Text('$snapshot.data'),
-                  // Text(snapshot.data!.authorName),
-                  // Spacer(),
-                  // Text(snapshot.data!.firstSentence),
+                  // Text('${snapshot.data!.docs?[]. ?? ""}'),
                   Spacer(),
-                  Text('Data: '),
-                  Spacer(),
-                  // Text('$snapshot.data!.coverEditionKey'),
+                  Text('${author.name}'),
                 ],
               );
             } else if (snapshot.hasError) {
-              return Text('${snapshot.error}');
+              return Text('$snapshot.error');
             }
             return const CircularProgressIndicator();
           },
